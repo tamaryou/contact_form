@@ -1,5 +1,8 @@
 <?php
-      
+    
+    require_once('function.php');
+    
+
       if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         header('Location: index.html');
     }
@@ -38,9 +41,9 @@
 </head>
 <body>
 <h1>入力内容確認</h1>
-    <p><?php echo $nickname_result; ?></p>
-    <p><?php echo $email_result; ?></p>
-    <p><?php echo $content_result; ?></p>
+    <p><?php echo h($nickname_result); ?></p>
+    <p><?php echo h($email_result); ?></p>
+    <p><?php echo h($content_result); ?></p>
 
     <form method="POST" action="thanks.php">
     <input type="hidden" name="nickname" value="<?php echo $nickname; ?>">
