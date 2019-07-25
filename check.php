@@ -1,4 +1,9 @@
 <?php
+      
+      if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        header('Location: index.html');
+    }
+    
     $nickname = $_POST['nickname'];
     
     $email = $_POST['email'];
