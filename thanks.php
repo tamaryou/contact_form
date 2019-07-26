@@ -1,7 +1,16 @@
 <?php
-    $nickname = $_POST['nickname'];
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    header('Location: index.html');
+}
+require_once('function.php');
+require_once('dbconnect.php'); 
+
+   $nickname = $_POST['nickname'];
     $email = $_POST['email'];
     $content = $_POST['content'];
+
+    $stmt = $dbh->prepare('INSERT INTO surveys (nickname, email, content) VALUES (?, ?, ?)');
+    $stmt->execute([$nickname, $email, $content]);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
